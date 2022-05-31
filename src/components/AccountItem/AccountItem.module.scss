@@ -1,0 +1,37 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 9px 16px;
+    cursor: pointer;
+}
+.avatar{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin: 0 12px 0 0;
+}
+.info{
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+.check-icon{
+    color: rgb(32, 213, 236);
+    margin-left: 6px;
+    font-size: 1.2rem;
+}
+.name{
+    font-size: 1.5rem;
+    font-weight:  500;
+    line-height: 1.4rem;
+    color: var(--text);
+    margin: 0;
+}
+.username{
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 0;
+    color: rgba(22, 24, 35, 0.5);
+}
