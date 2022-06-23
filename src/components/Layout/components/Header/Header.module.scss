@@ -9,6 +9,7 @@
     height: 100%;
     width:var(--default-width-content, 1150px);
     margin: 0 auto;
+    padding: 0 var(--default-layout-horizontal-spacer);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -90,13 +91,16 @@
     margin-left: 10px ;
     font-size: 1.5rem;
 }
+
 .action-group{
 
 }
+
 .btn-more{
     font-size: 2rem;
     margin-left: 20px ;
     padding: 4px 8px ;
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
