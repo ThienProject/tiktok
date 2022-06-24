@@ -30,9 +30,12 @@ function Menu({children, items =[], onChange = defaultFn}){
 
     return (
         
-            <Tippy
-                        visible
-                       delay={[0, 500]}
+            <Tippy      
+                        onHidden={()=>{
+                            setHistory((prev)=>prev.slice(0,1));
+                        }}
+            /*             visible */
+                        delay={[0, 500]}
                         interactive = {true}
                         placement='bottom-end'
                         render={(attrs) => (
