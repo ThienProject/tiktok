@@ -32,7 +32,8 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Images';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -106,7 +107,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img alt="Tiktok" src={images.logo}></img>
+                    <Image alt="Tiktok" src={images.logo} />
                 </div>
 
                 <div className={cx('middle')}>
@@ -141,11 +142,12 @@ function Header() {
                 <div className={cx('action-group')}>
                     {loginUser ? (
                         <>
-                            <Tippy placement="bottom" content="upload video">
-                                <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload}></FontAwesomeIcon>
-                                </button>
-                            </Tippy>
+                           
+                           
+                            <Button leftIcon={<UploadIcon></UploadIcon>} className={cx('action-btn')}>
+                                Upload
+                            </Button>
+                          
                         </>
                     ) : (
                         <>
@@ -155,7 +157,7 @@ function Header() {
                     )}
                     <Menu items={loginUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {loginUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 alt="Phạm Văn Thiên"
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/2e315939d516bfa2f95defc3ce1790a7~c5_100x100.jpeg?x-expires=1656234000&x-signature=GQ6pFfZ9gDbLVoSMgj1rcO%2F%2BG1Y%3D"
