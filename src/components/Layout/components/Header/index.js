@@ -1,25 +1,11 @@
-import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faCircleXmark,
-    faSpinner,
-    faMagnifyingGlass,
-    faPlus,
-    faPlane,
-    faEllipsisVertical,
-    faEarthAfrica,
     faEarthAsia,
     faKeyboard,
-    faQuestion,
+    faEllipsisVertical,
     faCircleQuestion,
-    faUpload,
-    faCloudUpload,
-    faMessage,
-    faUsersViewfinder,
     faGear,
     faUser,
     faCoins,
@@ -29,11 +15,11 @@ import 'tippy.js/dist/tippy.css';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-import { UploadIcon } from '~/components/Icons';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Images';
+import Search from '~/components/Layout/components/Search';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -67,26 +53,20 @@ const MENU_ITEMS = [
     },
 ];
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
+    
+
     const loginUser = true;
 
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2, 3]);
-        }, 0);
-    });
+   
 
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
     };
 
     const userMenu = [
-        {  icon: <FontAwesomeIcon icon={faUser} />,
-           title: 'View profile',
-           to: '/@hoaa' 
-        },
+        { icon: <FontAwesomeIcon icon={faUser} />, title: 'View profile', to: '/@hoaa' },
         {
-            icon: <FontAwesomeIcon icon={faCoins    } />,
+            icon: <FontAwesomeIcon icon={faCoins} />,
             title: 'Get coins',
             to: '/coin',
         },
@@ -100,7 +80,7 @@ function Header() {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Logout',
             to: '/logout',
-            separate :true
+            separate: true,
         },
     ];
     return (
@@ -111,43 +91,28 @@ function Header() {
                 </div>
 
                 <div className={cx('middle')}>
-                    <HeadlessTippy
-                        interactive={true}
-                        visible={searchResult.length > 0}
-                        render={(attrs) => (
-                            <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                                <PopperWrapper>
-                                    <h4 className={cx('search-title')}>Accounts</h4>
-                                    <AccountItem />
-                                    <AccountItem />
-                                </PopperWrapper>
-                            </div>
-                        )}
-                    >
-                        <div className={cx('search')}>
-                            <input placeholder="Search account and video" spellCheck={false} />
-                            <button className={cx('clear')}>
-                                <FontAwesomeIcon icon={faCircleXmark} />
-                            </button>
-
-                            <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-
-                            <button className={cx('btn-search')}>
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </button>
-                        </div>
-                    </HeadlessTippy>
+                    <Search />
                 </div>
 
                 <div className={cx('action-group')}>
                     {loginUser ? (
                         <>
-                           
-                           
-                            <Button leftIcon={<UploadIcon></UploadIcon>} className={cx('action-btn')}>
-                                Upload
-                            </Button>
-                          
+                            <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
+                                <Button leftIcon={<UploadIcon></UploadIcon>} className={cx('action-btn')}>
+                                    Upload
+                                </Button>
+                            </Tippy>
+                            <Tippy delay={[0, 50]} content="Message" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon />
+                                    <span className={cx('badge')}>12</span>
+                                </button>
+                            </Tippy>
                         </>
                     ) : (
                         <>
