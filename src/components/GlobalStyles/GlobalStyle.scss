@@ -9,6 +9,9 @@
     --default-width-content : 1150px;
     --default-layout-horizontal-spacer : 24px;
     --text : #333;
+
+    --font-family:'ProximaNova',sans-serif;
+
 }
 
 html {
@@ -24,7 +27,7 @@ body{
     line-height: 1.5;
     font-size: 1.6rem;
     color: var(--text);
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-family);
     text-rendering: optimizeSpeed; // tối ưu fond hiển thị nhanh khi chưa kịp load
 }
 a[href]{

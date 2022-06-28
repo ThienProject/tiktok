@@ -4,7 +4,9 @@
     height: var(--header-height, 60px);
     box-shadow: 0 1px 1px rgb(0 0 0/ 12%);
 }
-
+.logo-link{
+    display: flex;
+}
 .inner{
     height: 100%;
     width:var(--default-width-content, 1150px);

@@ -17,9 +17,12 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { Link } from 'react-router-dom';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Images';
 import Search from '~/components/Layout/components/Search';
+import routesConfig from '~/config/router'
+
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -86,8 +89,12 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
-                    <Image alt="Tiktok" src={images.logo} />
+                <div className={cx('logo')} >
+                    <Link to={routesConfig.home} className={cx('logo-link')}>
+                            <Image alt="Tiktok" src={images.logo} />
+                    </Link>
+                    
+                    
                 </div>
 
                 <div className={cx('middle')}>
@@ -120,7 +127,7 @@ function Header() {
                             <Button primary>{} Login</Button>
                         </>
                     )}
-                    <Menu items={loginUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                    <Menu items={loginUser ? userMenu : MENU_ITEMS} hideOnClick={false} onChange={handleMenuChange}>
                         {loginUser ? (
                             <Image
                                 className={cx('user-avatar')}

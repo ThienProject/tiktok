@@ -1,4 +1,4 @@
-
+import routesConfig from '~/config/router'
 // Layout
 import {OnlyHeader} from '~/components/Layout';
 
@@ -11,21 +11,21 @@ import Profile from '~/pages/Profile';
 // No need to login
 const publicRoutes = [
     {
-        path : '/', component: Home
+        path : routesConfig.home, component: Home
     },
 
     {
-        path : '/following', component: Following
+        path : routesConfig.following, component: Following
     },
     
     {
-        path : '/@:nickname', component: Profile
+        path : routesConfig.profile, component: Profile
     },
     {
-        path : '/upload', component: Upload, layout : OnlyHeader
+        path : routesConfig.upload, component: Upload, layout : OnlyHeader
     },
     {
-        path : '/search', component: Search, layout : null
+        path : routesConfig.search, component: Search, layout : null
     },
 ]
 

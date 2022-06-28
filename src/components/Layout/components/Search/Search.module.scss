@@ -6,7 +6,7 @@
     width: 361px;
     height: var(--search-height);
     background-color: #f1f1f2;
-    border: 1px solid transparent;
+    border: 1.5px solid transparent;
        
         input {
             flex: 1;
@@ -17,6 +17,7 @@
             background-color: transparent;
             height: 100%;
             caret-color: var(--primary);
+             font-family: var(--font-family);
         }
 
         input:not(:placeholder-shown) ~ .btn-search {
@@ -33,7 +34,7 @@
             right: 52px;
         }
         &:focus-within{
-            border:  rgba(17, 18, 26, 0.12);
+            border:  1.5px solid rgba(22, 24, 35, 0.2);
         }
 }
 .search-result{
@@ -66,6 +67,7 @@
     height: 100%;
     border: none;
     border-bottom-right-radius: 92px ;
+    border-top-right-radius: 92px ;
     color: #a7a7ab;
     font-size: 1.6rem;
 

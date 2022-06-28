@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const defaultFn = () =>{}
 const cx = classNames.bind(styles);
-function Menu({children, items =[], onChange = defaultFn}){
+function Menu({children, items =[], hideOnClick = true, onChange = defaultFn}){
     const [history, setHistory] = useState([{data : items}])
     const current = history[history.length -1];
 
@@ -31,6 +31,7 @@ function Menu({children, items =[], onChange = defaultFn}){
     return (
         
             <Tippy      
+                        hideOnClick = {hideOnClick}
                         onHidden={()=>{
                             setHistory((prev)=>prev.slice(0,1));
                         }}
