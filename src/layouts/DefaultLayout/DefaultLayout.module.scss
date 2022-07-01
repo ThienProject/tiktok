@@ -5,6 +5,7 @@
   align-items: center;
 }
 .container{
+  margin-top: var(--header-height);
   width: var(--default-width-content, 1150px);
   padding: 0 var(--default-layout-horizontal-spacer);
   display: flex;

@@ -16,6 +16,7 @@ function Menu({children, items =[], hideOnClick = true, onChange = defaultFn}){
        return current.data.map((item, index) => {
             const isParent = !!item.subChildren;
             return <MenuItem key = {index} 
+
                 data={item} 
                 onClick={()=>{
                 if(isParent){
@@ -31,6 +32,7 @@ function Menu({children, items =[], hideOnClick = true, onChange = defaultFn}){
     return (
         
             <Tippy      
+                      
                         hideOnClick = {hideOnClick}
                         onHidden={()=>{
                             setHistory((prev)=>prev.slice(0,1));
@@ -45,7 +47,7 @@ function Menu({children, items =[], hideOnClick = true, onChange = defaultFn}){
                                     { history.length > 1 && <Header onBack={()=>{
                                        setHistory(prev => prev.slice(0,prev.length -1));
                                     }} title = "language" > </Header>}
-                                        {renderItems()}
+                                        <div className={cx('menu-body')}>{renderItems()}</div>
                                     </PopperWrapper>
                                 </div>
                         )}
