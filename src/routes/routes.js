@@ -10,6 +10,7 @@ import Following from '~/pages/Following'
 import Upload from '~/pages/Upload'
 import Search from '~/pages/Search'
 import Profile from '~/pages/Profile';
+import Live from '~/pages/Live';
 // No need to login
 const publicRoutes = [
     {
@@ -24,11 +25,15 @@ const publicRoutes = [
         path : config.routes.profile, component: Profile
     },
     {
+        path : config.routes.live, component: Live
+    },
+    {
         path : config.routes.upload, component: Upload, layout : OnlyHeader
     },
     {
         path : config.routes.search, component: Search, layout : null
     },
+    
 ]
 
 // required login
